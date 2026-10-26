@@ -1,0 +1,90 @@
+@import "tailwindcss";
+
+@theme {
+  --color-cream: #fff9f5;
+  --color-cream-deep: #fff0e6;
+  --color-card: #ffffff;
+  --color-pink: #ff8fa8;
+  --color-pink-soft: #ffd8e1;
+  --color-pink-wash: #fff0f4;
+  --color-carrot: #ff9a4d;
+  --color-carrot-soft: #ffe2c9;
+  --color-leaf: #6cbf7b;
+  --color-leaf-soft: #d8f0dc;
+  --color-sky: #6bb8ee;
+  --color-sky-soft: #d9ecfb;
+  --color-grape: #a78bfa;
+  --color-grape-soft: #e8e0ff;
+  --color-ink: #5a4a44;
+  --color-ink-soft: #9b8880;
+  --color-line: #f0e2da;
+  --radius-bunny: 1.5rem;
+}
+
+html {
+  -webkit-text-size-adjust: 100%;
+  background: var(--color-cream);
+}
+
+body {
+  margin: 0;
+  background: var(--color-cream);
+  color: var(--color-ink);
+  font-size: 17px;
+  line-height: 1.65;
+  font-family: system-ui, -apple-system, "PingFang TC", "Noto Sans TC",
+    "Microsoft JhengHei", sans-serif;
+  overscroll-behavior-y: none;
+  -webkit-font-smoothing: antialiased;
+}
+
+button {
+  font-family: inherit;
+  font-size: inherit;
+  touch-action: manipulation;
+  -webkit-tap-highlight-color: transparent;
+  user-select: none;
+}
+
+/* 英文練習句專用：字距放寬一點，念起來比較好跟 */
+.en {
+  font-family: "Nunito", "Avenir Next", "Segoe UI", system-ui, sans-serif;
+  letter-spacing: 0.01em;
+}
+
+@keyframes bunny-hop {
+  0%, 100% { transform: translateY(0) }
+  30% { transform: translateY(-9%) }
+  55% { transform: translateY(0) }
+}
+@keyframes bunny-breathe {
+  0%, 100% { transform: scale(1) }
+  50% { transform: scale(1.022) }
+}
+@keyframes ear-wiggle {
+  0%, 100% { transform: rotate(0deg) }
+  25% { transform: rotate(-7deg) }
+  75% { transform: rotate(5deg) }
+}
+@keyframes pop-in {
+  0% { transform: scale(0.8); opacity: 0 }
+  60% { transform: scale(1.04); opacity: 1 }
+  100% { transform: scale(1); opacity: 1 }
+}
+@keyframes float-up {
+  0% { transform: translateY(0) scale(1); opacity: 1 }
+  100% { transform: translateY(-64px) scale(1.25); opacity: 0 }
+}
+@keyframes pulse-ring {
+  0% { box-shadow: 0 0 0 0 rgba(255,143,168,0.45) }
+  70% { box-shadow: 0 0 0 18px rgba(255,143,168,0) }
+  100% { box-shadow: 0 0 0 0 rgba(255,143,168,0) }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+  }
+}

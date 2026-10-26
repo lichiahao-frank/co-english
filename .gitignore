@@ -1,0 +1,9 @@
+node_modules/
+dist/
+dev-dist/
+.DS_Store
+*.local
+photo/
+
+# 參考資料：含個人資訊，不進公開 repo
+30天英語聽力與口說學習規劃說明書.md
