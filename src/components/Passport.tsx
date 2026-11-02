@@ -4,6 +4,9 @@ import { CITIES } from '../state/store'
 type Props = {
   completedDays: number[]
   currentDay: number
+  /** 已經有課程內容、點得下去的天 */
+  playableDays?: number[]
+  onPickDay?: (day: number) => void
   compact?: boolean
 }
 
@@ -22,8 +25,11 @@ const STAMP_TONES = [
   'bg-carrot-soft text-carrot border-carrot',
 ]
 
-export default function Passport({ completedDays, currentDay, compact }: Props) {
+export default function Passport({
+  completedDays, currentDay, playableDays, onPickDay, compact,
+}: Props) {
   const done = new Set(completedDays)
+  const playable = new Set(playableDays ?? [])
   const days = Array.from({ length: 30 }, (_, i) => i + 1)
 
   return (
@@ -32,10 +38,17 @@ export default function Passport({ completedDays, currentDay, compact }: Props) 
         const isDone = done.has(d)
         const isToday = d === currentDay && !isDone
         const tone = STAMP_TONES[cityIndexForDay(d)]
+        const canPick = Boolean(onPickDay) && playable.has(d)
         return (
-          <div
+          <button
             key={d}
+            type="button"
+            disabled={!canPick}
+            onClick={canPick ? () => onPickDay?.(d) : undefined}
+            aria-label={canPick ? `重練 Day ${d}` : `Day ${d}`}
             className={`aspect-square rounded-xl grid place-items-center border-2
+              disabled:cursor-default
+              ${canPick ? 'active:scale-95 transition-transform' : ''}
               ${isDone
                 ? `${tone} font-extrabold`
                 : isToday
@@ -51,7 +64,7 @@ export default function Passport({ completedDays, currentDay, compact }: Props) 
             ) : (
               <span className={compact ? 'text-[10px]' : 'text-[13px]'}>{d}</span>
             )}
-          </div>
+          </button>
         )
       })}
     </div>

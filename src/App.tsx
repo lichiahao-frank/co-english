@@ -1,4 +1,5 @@
 import { useState } from 'react'
+import DayPicker from './screens/DayPicker'
 import Home from './screens/Home'
 import Onboarding from './screens/Onboarding'
 import PhraseBook from './screens/PhraseBook'
@@ -6,7 +7,7 @@ import Session from './screens/Session'
 import Settings from './screens/Settings'
 import { AppProvider, useApp } from './state/AppContext'
 
-type View = 'home' | 'session' | 'phrasebook' | 'settings'
+type View = 'home' | 'session' | 'days' | 'phrasebook' | 'settings'
 
 function Shell() {
   const { progress } = useApp()
@@ -29,6 +30,19 @@ function Shell() {
     )
   }
 
+  if (view === 'days') {
+    return (
+      <DayPicker
+        onPick={(day, mini) => {
+          setSession({ day, mini })
+          setView('session')
+          window.scrollTo({ top: 0 })
+        }}
+        onBack={() => setView('home')}
+      />
+    )
+  }
+
   if (view === 'phrasebook') return <PhraseBook onBack={() => setView('home')} />
   if (view === 'settings') return <Settings onBack={() => setView('home')} />
 
@@ -37,6 +51,15 @@ function Shell() {
       onStart={(mini) => {
         setSession({ day: progress.currentDay, mini })
         setView('session')
+        window.scrollTo({ top: 0 })
+      }}
+      onReplay={(day) => {
+        if (day) {
+          setSession({ day, mini: false })
+          setView('session')
+        } else {
+          setView('days')
+        }
         window.scrollTo({ top: 0 })
       }}
       onOpenPhrases={() => setView('phrasebook')}

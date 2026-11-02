@@ -2,17 +2,19 @@ import Co from '../components/Co'
 import Carrot from '../components/Carrot'
 import Passport from '../components/Passport'
 import { Button, Card, Pill } from '../components/ui'
-import { CONTENT_DAYS, getDay } from '../content'
+import { CONTENT_DAYS, DAYS, getDay } from '../content'
 import { useApp } from '../state/AppContext'
 import { STEP_META, STEPS } from '../state/store'
 
 type Props = {
   onStart: (mini: boolean) => void
+  /** 不帶日期＝打開「挑一天重練」的清單；帶日期＝直接重練那一天 */
+  onReplay: (day?: number) => void
   onOpenPhrases: () => void
   onOpenSettings: () => void
 }
 
-export default function Home({ onStart, onOpenPhrases, onOpenSettings }: Props) {
+export default function Home({ onStart, onReplay, onOpenPhrases, onOpenSettings }: Props) {
   const { progress, practicedToday, stage, city } = useApp()
   const day = getDay(progress.currentDay)
   const completedDays = Object.entries(progress.days)
@@ -105,10 +107,11 @@ export default function Home({ onStart, onOpenPhrases, onOpenSettings }: Props) 
       ) : (
         <Card className="mb-4 text-center">
           <p className="text-[17px] font-bold mb-1">🎉 第一週的內容你全部練完了！</p>
-          <p className="text-[15px] text-ink-soft">
+          <p className="text-[15px] text-ink-soft mb-4">
             Day {CONTENT_DAYS + 1} 之後的課程還在準備中。
             這幾天可以回去重練任何一天，或翻翻句型小抄。
           </p>
+          <Button full onClick={() => onReplay()}>🔁 挑一天重新練</Button>
         </Card>
       )}
 
@@ -122,10 +125,26 @@ export default function Home({ onStart, onOpenPhrases, onOpenSettings }: Props) 
             {completedDays.length} / 30 天
           </span>
         </div>
-        <Passport completedDays={completedDays} currentDay={progress.currentDay} compact />
+        <Passport
+          completedDays={completedDays}
+          currentDay={progress.currentDay}
+          playableDays={DAYS.filter((d) => d.day <= progress.currentDay).map((d) => d.day)}
+          onPickDay={(d) => onReplay(d)}
+          compact
+        />
         <p className="text-[13px] text-ink-soft mt-3">
           目前在 {city.name} {city.en}
         </p>
+        {completedDays.length > 0 && (
+          <button
+            type="button"
+            onClick={() => onReplay()}
+            className="w-full mt-3 min-h-[52px] rounded-2xl bg-cream-deep text-ink
+              font-semibold active:bg-pink-wash"
+          >
+            🔁 回去重練某一天
+          </button>
+        )}
       </Card>
 
       {/* 小Co成長 */}

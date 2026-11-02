@@ -21,7 +21,12 @@ export default function Session({ day: dayNum, mini, onExit }: Props) {
   const steps: StepId[] = mini ? MINI_STEPS : [...STEPS]
   const [idx, setIdx] = useState(0)
   const [done, setDone] = useState(false)
-  const snapshot = useRef({ badges: progress.badges, carrots: progress.carrots })
+  const snapshot = useRef({
+    badges: progress.badges,
+    carrots: progress.carrots,
+    // 重練已經完成過的一天，不會再發胡蘿蔔，結算畫面要講清楚免得以為壞掉
+    wasDone: Boolean(progress.days[dayNum]?.completedAt),
+  })
 
   if (!day) {
     return (
@@ -60,19 +65,32 @@ export default function Session({ day: dayNum, mini, onExit }: Props) {
       <div className="min-h-dvh max-w-md mx-auto px-5 py-8 flex flex-col gap-5">
         <div className="text-center">
           <Co mood="cheer" gear={stage.gear} size={170} className="mx-auto" />
-          <h1 className="text-2xl font-extrabold mt-3">Day {dayNum} 完成！</h1>
+          <h1 className="text-2xl font-extrabold mt-3">
+            {snapshot.current.wasDone ? `Day ${dayNum} 又練了一次！` : `Day ${dayNum} 完成！`}
+          </h1>
           <p className="text-[16px] text-ink-soft mt-1">
-            {mini ? '迷你模式也算數——連續天數守住了。' : day.goal}
+            {snapshot.current.wasDone
+              ? '複習不會重複給胡蘿蔔，但今天的連續天數一樣守住了。'
+              : mini ? '迷你模式也算數——連續天數守住了。' : day.goal}
           </p>
         </div>
 
         <Card>
           <div className="flex items-center justify-around text-center">
             <div>
-              <p className="text-[13px] text-ink-soft">今天拿到</p>
-              <p className="text-[22px] font-extrabold text-carrot flex items-center gap-1 justify-center">
-                <Carrot size={22} /> +{gained}
-              </p>
+              {gained > 0 ? (
+                <>
+                  <p className="text-[13px] text-ink-soft">今天拿到</p>
+                  <p className="text-[22px] font-extrabold text-carrot flex items-center gap-1 justify-center">
+                    <Carrot size={22} /> +{gained}
+                  </p>
+                </>
+              ) : (
+                <>
+                  <p className="text-[13px] text-ink-soft">這一次是</p>
+                  <p className="text-[22px] font-extrabold text-leaf">複習 ✓</p>
+                </>
+              )}
             </div>
             <div className="w-px h-10 bg-line" />
             <div>
