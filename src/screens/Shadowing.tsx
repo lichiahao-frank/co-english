@@ -11,7 +11,14 @@ import { useApp } from '../state/AppContext'
  * 比對結果永遠只有「說到了」或「再試一次，記得說到 ___」，
  * 沒有分數、沒有百分比、沒有任何關於腔調或標準的字眼。
  */
-export default function Shadowing({ day, onDone }: { day: Day; onDone: () => void }) {
+type Props = {
+  day: Day
+  /** 迷你模式只練到跟讀為止，按鈕不能說「去情境實戰」 */
+  lastStep?: boolean
+  onDone: () => void
+}
+
+export default function Shadowing({ day, lastStep, onDone }: Props) {
   const { progress, actions } = useApp()
   const rec = useRecognition()
   const recorder = useRecorder()
@@ -159,7 +166,7 @@ export default function Shadowing({ day, onDone }: { day: Day; onDone: () => voi
         )}
 
         <Button full variant={result?.ok ? 'leaf' : 'soft'} onClick={goNext}>
-          {isLast ? '跟讀完成，去情境實戰' : '下一句'}
+          {isLast ? (lastStep ? '跟讀完成，看今天的成果' : '跟讀完成，去情境實戰') : '下一句'}
         </Button>
       </div>
     </div>

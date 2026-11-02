@@ -166,7 +166,9 @@ export default function Session({ day: dayNum, mini, onExit }: Props) {
 
       {step === 'warmup' && <Warmup onDone={handleStepDone} />}
       {step === 'listening' && <Listening day={day} onDone={handleStepDone} />}
-      {step === 'shadowing' && <Shadowing day={day} onDone={handleStepDone} />}
+      {step === 'shadowing' && (
+        <Shadowing day={day} lastStep={idx === steps.length - 1} onDone={handleStepDone} />
+      )}
       {step === 'roleplay' && <RolePlay day={day} onDone={handleStepDone} />}
       {step === 'wrapup' && <Wrapup day={day} onDone={handleStepDone} />}
 
