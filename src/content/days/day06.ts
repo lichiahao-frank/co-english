@@ -50,6 +50,7 @@ export const day06: Day = {
         choices: [
           { en: "It really is. I think this city is amazing.", zh: '真的很好。我覺得這城市很棒。', next: 'n2' },
           { en: 'Yes! Much warmer than I expected.', zh: '對啊！比我想的暖多了。', next: 'n2' },
+          { en: 'Yes, but it is a little cold for me!', zh: '是啊，不過對我來說有點冷！', next: 'n2' },
         ],
       },
       {
@@ -59,6 +60,7 @@ export const day06: Day = {
         choices: [
           { en: "Yes, I've been here for three days.", zh: '對，我來這裡三天了。', next: 'n3' },
           { en: 'Yes, it is my first time here.', zh: '對，這是我第一次來。', next: 'n3' },
+          { en: "Yes! I'm visiting from Taiwan.", zh: '對！我從台灣來玩的。', next: 'n3' },
         ],
       },
       {
@@ -68,6 +70,7 @@ export const day06: Day = {
         choices: [
           { en: 'I wanted to see the city. Have you ever been to Taiwan?', zh: '我想看看這座城市。你去過台灣嗎？', next: 'n4' },
           { en: 'Do you mean why I chose this city?', zh: '你是說我為什麼選這座城市嗎？', next: 'n3b' },
+          { en: 'I really wanted to try the food here. Have you ever been to Taiwan?', zh: '我很想來吃這裡的食物。你去過台灣嗎？', next: 'n4' },
         ],
       },
       {
@@ -76,6 +79,7 @@ export const day06: Day = {
         theyZh: '對，沒錯——為什麼選這座城市？',
         choices: [
           { en: 'A friend recommended it. Have you ever been to Taiwan?', zh: '朋友推薦的。你去過台灣嗎？', next: 'n4' },
+          { en: 'I saw it in a movie. Have you ever been to Taiwan?', zh: '我在電影裡看過。你去過台灣嗎？', next: 'n4' },
         ],
       },
       {
@@ -85,6 +89,9 @@ export const day06: Day = {
         choices: [
           { en: 'The night markets! The food is amazing.', zh: '夜市！食物超棒。', next: 'n5' },
           { en: 'You should try the night markets. I think you would love them.', zh: '你該去夜市，我想你會很喜歡。', next: 'n5' },
+          { en: 'The people! Taiwanese people are really kind and friendly.', zh: '人！台灣人真的很友善、很親切。', next: 'n5-people' },
+          { en: 'Taipei 101 — and the mountains are beautiful, too.', zh: '台北 101——還有山也很美。', next: 'n5-sights' },
+          { en: 'You have to try bubble tea. It comes from Taiwan!', zh: '你一定要喝珍珠奶茶，它是台灣發明的！', next: 'n5-tea' },
         ],
       },
       {
@@ -93,6 +100,34 @@ export const day06: Day = {
         theyZh: '夜市——我記下來。謝啦！',
         choices: [
           { en: 'That sounds great. Enjoy your coffee!', zh: '聽起來很棒。好好享受你的咖啡！', next: null },
+          { en: 'I hope you visit soon. Have a nice day!', zh: '希望你很快就能去。祝你有美好的一天！', next: null },
+        ],
+      },
+      {
+        id: 'n5-people',
+        theyEn: 'That is so nice to hear. Now I really want to go!',
+        theyZh: '聽了真開心。現在我真的很想去了！',
+        choices: [
+          { en: 'You should! Enjoy your coffee!', zh: '你該去的！好好享受你的咖啡！', next: null },
+          { en: 'I hope you visit soon. Have a nice day!', zh: '希望你很快就能去。祝你有美好的一天！', next: null },
+        ],
+      },
+      {
+        id: 'n5-sights',
+        theyEn: 'Taipei 101 and the mountains — I will write that down. Thanks!',
+        theyZh: '台北 101 和山——我記下來。謝啦！',
+        choices: [
+          { en: 'That sounds great. Enjoy your coffee!', zh: '聽起來很棒。好好享受你的咖啡！', next: null },
+          { en: 'I hope you visit soon. Have a nice day!', zh: '希望你很快就能去。祝你有美好的一天！', next: null },
+        ],
+      },
+      {
+        id: 'n5-tea',
+        theyEn: 'Bubble tea is from Taiwan? I had no idea!',
+        theyZh: '珍奶是台灣來的？我完全不知道！',
+        choices: [
+          { en: 'Yes! The real one is even better. Enjoy your coffee!', zh: '對啊！在台灣喝更好喝。好好享受你的咖啡！', next: null },
+          { en: 'I hope you visit soon. Have a nice day!', zh: '希望你很快就能去。祝你有美好的一天！', next: null },
         ],
       },
     ],

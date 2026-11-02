@@ -50,6 +50,17 @@ export const day05: Day = {
         choices: [
           { en: "Yes, I'd like to check in, please.", zh: '是的，我想辦理入住，謝謝。', next: 'n2' },
           { en: 'Yes, please. I have a reservation.', zh: '是的，麻煩你。我有訂房。', next: 'n2' },
+          { en: "Yes. I'm a little early. Can I check in now?", zh: '對。我有點早到，現在可以入住嗎？', next: 'n1c' },
+        ],
+      },
+      {
+        id: 'n1c',
+        theyEn: 'Let me check... Yes, your room is ready. May I have the name on the reservation?',
+        theyZh: '我查一下……可以，你的房間已經準備好了。可以給我訂房的名字嗎？',
+        choices: [
+          { en: 'I have a reservation under the name Queeni.', zh: '我用 Queeni 的名字訂了房。', next: 'n3' },
+          { en: 'Sorry, could you say that again?', zh: '不好意思，可以再說一次嗎？', next: 'n2b' },
+          { en: "Sure, here's my passport.", zh: '好的，這是我的護照。', next: 'n3' },
         ],
       },
       {
@@ -59,6 +70,8 @@ export const day05: Day = {
         choices: [
           { en: 'I have a reservation under the name Queeni.', zh: '我用 Queeni 的名字訂了房。', next: 'n3' },
           { en: 'Sorry, could you say that again?', zh: '不好意思，可以再說一次嗎？', next: 'n2b' },
+          { en: "Sure, here's my passport.", zh: '好的，這是我的護照。', next: 'n3' },
+          { en: "It's under Queeni. That's Q-U-E-E-N-I.", zh: '是 Queeni，拼法是 Q-U-E-E-N-I。', next: 'n3' },
         ],
       },
       {
@@ -67,6 +80,7 @@ export const day05: Day = {
         theyZh: '當然——訂房是用什麼名字？',
         choices: [
           { en: "It's under Queeni.", zh: '是 Queeni。', next: 'n3' },
+          { en: "Queeni. Here's my passport.", zh: 'Queeni。這是我的護照。', next: 'n3' },
         ],
       },
       {
@@ -76,15 +90,45 @@ export const day05: Day = {
         choices: [
           { en: "Yes, that's right. Is breakfast included?", zh: '對，沒錯。有含早餐嗎？', next: 'n4' },
           { en: 'Yes. Is Wi-Fi included?', zh: '是的。有含 Wi-Fi 嗎？', next: 'n4' },
+          { en: 'Actually, I booked three nights.', zh: '其實我訂的是三晚。', next: 'n3c' },
+        ],
+      },
+      {
+        id: 'n3c',
+        theyEn: 'Oh, let me check... You are right, three nights. Sorry about that!',
+        theyZh: '喔，我查一下……你說得對，是三晚。不好意思！',
+        choices: [
+          { en: 'No problem. Is breakfast included?', zh: '沒關係。有含早餐嗎？', next: 'n4' },
+          { en: 'No problem. Is Wi-Fi included?', zh: '沒關係。有含 Wi-Fi 嗎？', next: 'n4' },
         ],
       },
       {
         id: 'n4',
-        theyEn: 'Yes, both are included. Breakfast runs from seven to ten.',
-        theyZh: '是的，兩個都有包含。早餐七點到十點供應。',
+        theyEn: 'Yes, that is included. And breakfast runs from seven to ten.',
+        theyZh: '有，有包含。另外，早餐是七點到十點。',
         choices: [
           { en: 'Great. What time is check-out?', zh: '太好了。退房時間是幾點？', next: 'n5' },
           { en: 'Perfect, thank you.', zh: '太好了，謝謝。', next: 'n5' },
+          { en: 'Where is breakfast served?', zh: '早餐在哪裡吃？', next: 'n4b' },
+          { en: 'What is the Wi-Fi password?', zh: 'Wi-Fi 密碼是什麼？', next: 'n4c' },
+        ],
+      },
+      {
+        id: 'n4b',
+        theyEn: 'It is on the second floor, right next to the elevator.',
+        theyZh: '在二樓，就在電梯旁邊。',
+        choices: [
+          { en: 'Got it. What time is check-out?', zh: '了解。退房時間是幾點？', next: 'n5' },
+          { en: 'Got it, thank you.', zh: '了解，謝謝。', next: 'n5' },
+        ],
+      },
+      {
+        id: 'n4c',
+        theyEn: 'It is on the back of your key card.',
+        theyZh: '寫在你房卡的背面。',
+        choices: [
+          { en: 'Oh, I see. What time is check-out?', zh: '喔，了解。退房時間是幾點？', next: 'n5' },
+          { en: 'Oh, I see. Thank you.', zh: '喔，了解。謝謝。', next: 'n5' },
         ],
       },
       {
@@ -94,6 +138,7 @@ export const day05: Day = {
         choices: [
           { en: 'Thank you so much. Could I leave my luggage here after check-out?', zh: '非常謝謝。退房後可以把行李寄放在這裡嗎？', next: null },
           { en: 'Thank you so much!', zh: '非常謝謝你！', next: null },
+          { en: 'Thank you! Which way is the elevator?', zh: '謝謝！電梯往哪邊走？', next: null },
         ],
       },
     ],

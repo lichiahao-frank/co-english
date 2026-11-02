@@ -50,6 +50,7 @@ export const day03: Day = {
         choices: [
           { en: 'Just one, please.', zh: '一位，謝謝。', next: 'n2' },
           { en: 'Two, please.', zh: '兩位，謝謝。', next: 'n2' },
+          { en: 'Just one. Could I sit by the window?', zh: '一位。可以坐靠窗的位子嗎？', next: 'n2' },
         ],
       },
       {
@@ -59,6 +60,8 @@ export const day03: Day = {
         choices: [
           { en: 'Just water, thank you.', zh: '水就好，謝謝。', next: 'n3' },
           { en: 'Could I have an iced tea, please?', zh: '可以給我一杯冰茶嗎？', next: 'n3' },
+          { en: 'Could I have a Coke with no ice?', zh: '可以給我一杯可樂，不要加冰嗎？', next: 'n3' },
+          { en: "I'm fine for now, thank you.", zh: '我先不用，謝謝。', next: 'n3' },
         ],
       },
       {
@@ -68,6 +71,7 @@ export const day03: Day = {
         choices: [
           { en: 'What do you recommend?', zh: '你推薦什麼？', next: 'n4' },
           { en: 'Could I have a few more minutes?', zh: '可以再給我幾分鐘嗎？', next: 'n4' },
+          { en: 'Do you have anything vegetarian?', zh: '你們有素食的餐點嗎？', next: 'n4v' },
         ],
       },
       {
@@ -77,6 +81,16 @@ export const day03: Day = {
         choices: [
           { en: "I'd like the grilled chicken, please.", zh: '我想點烤雞，謝謝。', next: 'n5' },
           { en: "I'd like the grilled chicken. Could I have it without onions?", zh: '我要烤雞。可以不要加洋蔥嗎？', next: 'n5' },
+          { en: 'That sounds good. Could I get a salad instead of rice?', zh: '聽起來不錯。飯可以換成沙拉嗎？', next: 'n5' },
+        ],
+      },
+      {
+        id: 'n4v',
+        theyEn: 'Yes, our veggie pasta is very popular. It has tomatoes, spinach, and mushrooms.',
+        theyZh: '有，我們的蔬菜義大利麵很受歡迎，裡面有番茄、菠菜和蘑菇。',
+        choices: [
+          { en: "I'd like the veggie pasta, please.", zh: '我要蔬菜義大利麵，謝謝。', next: 'n5' },
+          { en: "I'll have the veggie pasta. Could I have it without mushrooms?", zh: '我要蔬菜義大利麵。可以不要加蘑菇嗎？', next: 'n5' },
         ],
       },
       {
@@ -86,6 +100,7 @@ export const day03: Day = {
         choices: [
           { en: 'Thank you. Could I get the check when you have a chance?', zh: '謝謝。方便的時候可以幫我結帳嗎？', next: null },
           { en: 'Thank you so much.', zh: '非常謝謝你。', next: null },
+          { en: 'Thank you. Excuse me, where is the restroom?', zh: '謝謝。不好意思，請問洗手間在哪裡？', next: null },
         ],
       },
     ],

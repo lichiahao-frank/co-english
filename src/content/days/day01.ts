@@ -51,6 +51,7 @@ export const day01: Day = {
         choices: [
           { en: "Hi Dana, I'm Queeni. Nice to meet you.", zh: '嗨 Dana，我是 Queeni，很高興認識你。', next: 'n2' },
           { en: 'Sorry, could you say that again?', zh: '不好意思，可以再說一次嗎？', next: 'n1b' },
+          { en: "Hi, I'm Queeni. How do you spell your name?", zh: '嗨，我是 Queeni。你的名字怎麼拼？', next: 'n1c' },
         ],
       },
       {
@@ -59,6 +60,16 @@ export const day01: Day = {
         theyZh: '當然！我說我是 Dana。你呢？',
         choices: [
           { en: "I'm Queeni. Nice to meet you.", zh: '我是 Queeni，很高興認識你。', next: 'n2' },
+          { en: "Oh, Dana! Hi, I'm Queeni.", zh: '喔，Dana！嗨，我是 Queeni。', next: 'n2' },
+        ],
+      },
+      {
+        id: 'n1c',
+        theyEn: "It's D-A-N-A. Nice to meet you, Queeni. Where are you from?",
+        theyZh: '是 D-A-N-A。很高興認識你，Queeni。你從哪裡來？',
+        choices: [
+          { en: "I'm from Taiwan. How about you?", zh: '我來自台灣。那你呢？', next: 'n3' },
+          { en: "I'm from Taiwan. It's a small island near Japan.", zh: '我來自台灣，是日本附近的一個小島。', next: 'n3' },
         ],
       },
       {
@@ -68,6 +79,7 @@ export const day01: Day = {
         choices: [
           { en: "I'm from Taiwan. How about you?", zh: '我來自台灣。那你呢？', next: 'n3' },
           { en: "I'm from Taiwan.", zh: '我來自台灣。', next: 'n3' },
+          { en: "I'm from Taiwan. It's a small island near Japan.", zh: '我來自台灣，是日本附近的一個小島。', next: 'n3' },
         ],
       },
       {
@@ -77,6 +89,7 @@ export const day01: Day = {
         choices: [
           { en: 'I work in the medical device industry.', zh: '我在醫療器材產業工作。', next: 'n4' },
           { en: 'Could you speak a little more slowly?', zh: '可以說慢一點嗎？', next: 'n3b' },
+          { en: "It's a little hard to explain. I work in healthcare.", zh: '有點難解釋。我在醫療相關的領域工作。', next: 'n4' },
         ],
       },
       {
@@ -85,6 +98,7 @@ export const day01: Day = {
         theyZh: '當然。你……做什麼……工作？',
         choices: [
           { en: 'I work in the medical device industry.', zh: '我在醫療器材產業工作。', next: 'n4' },
+          { en: 'Oh, my job! I work in healthcare.', zh: '喔，你是問我的工作！我在醫療相關的領域工作。', next: 'n4' },
         ],
       },
       {
@@ -94,6 +108,8 @@ export const day01: Day = {
         choices: [
           { en: 'No, just for fun. I enjoy traveling and meeting new people.', zh: '不是，純粹來玩的。我喜歡旅行和認識新朋友。', next: null },
           { en: 'No, just for fun.', zh: '不是，純粹來玩的。', next: null },
+          { en: "No, it's a vacation. I'm so excited!", zh: '不是，這是度假。我超興奮的！', next: null },
+          { en: 'Not this time. I want to relax and see the city.', zh: '這次不是。我想放鬆一下，到處看看這座城市。', next: null },
         ],
       },
     ],

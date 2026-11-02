@@ -50,6 +50,7 @@ export const day02: Day = {
         choices: [
           { en: "I'm good, thank you. How about you?", zh: '我很好，謝謝。你呢？', next: 'n2' },
           { en: "Morning! I'm doing well.", zh: '早安！我很好。', next: 'n2' },
+          { en: 'A little tired, but good. Jet lag!', zh: '有點累，但還好。時差啦！', next: 'n2' },
         ],
       },
       {
@@ -59,6 +60,8 @@ export const day02: Day = {
         choices: [
           { en: "For fun. I'm looking forward to this trip.", zh: '來玩的，我很期待這趟旅行。', next: 'n3' },
           { en: 'Sorry, could you say that again?', zh: '不好意思，可以再說一次嗎？', next: 'n2b' },
+          { en: "For fun. I'm visiting a friend here.", zh: '來玩的。我來這裡找朋友。', next: 'n3' },
+          { en: 'A little of both. I have a meeting, then a few free days.', zh: '兩個都有。我有個會要開，之後有幾天空閒。', next: 'n3' },
         ],
       },
       {
@@ -67,6 +70,7 @@ export const day02: Day = {
         theyZh: '當然——你是來工作，還是來玩的？',
         choices: [
           { en: 'For fun! My first trip to the States.', zh: '來玩的！我第一次來美國。', next: 'n3' },
+          { en: "For fun! I'm on vacation.", zh: '來玩的！我在度假。', next: 'n3' },
         ],
       },
       {
@@ -76,14 +80,17 @@ export const day02: Day = {
         choices: [
           { en: "I'm really into traveling.", zh: '我很喜歡旅行。', next: 'n4' },
           { en: "I'm really into learning new things.", zh: '我很喜歡學新東西。', next: 'n4' },
+          { en: 'I like cooking and trying new restaurants.', zh: '我喜歡做菜，也喜歡去吃新的餐廳。', next: 'n4' },
+          { en: 'I love hiking. I go to the mountains on weekends.', zh: '我很愛爬山，週末都會去山上。', next: 'n4' },
         ],
       },
       {
         id: 'n4',
-        theyEn: 'Oh nice, there is so much to see around here. Anyway, I should get going.',
-        theyZh: '喔不錯，這附近有很多值得看的。不過我該走了。',
+        theyEn: 'Oh nice, there is so much to do around here. Anyway, I should get going.',
+        theyZh: '喔不錯，這附近有很多可以做的事。不過我該走了。',
         choices: [
           { en: 'It was nice talking to you. Have a great day!', zh: '很高興跟你聊天。祝你有美好的一天！', next: null },
+          { en: 'Sure! Nice talking to you. See you around.', zh: '好喔！很高興跟你聊天，再見囉。', next: null },
         ],
       },
     ],

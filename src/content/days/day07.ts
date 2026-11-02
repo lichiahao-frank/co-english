@@ -49,6 +49,7 @@ export const day07: Day = {
         choices: [
           { en: 'Excuse me, I have a problem with my room.', zh: '不好意思，我的房間有點問題。', next: 'n2' },
           { en: 'Hi, could you help me with something?', zh: '嗨，可以幫我一個忙嗎？', next: 'n2' },
+          { en: "Hi, I'm in room 408. I need some help.", zh: '嗨，我住 408 號房，需要一點幫忙。', next: 'n2' },
         ],
       },
       {
@@ -58,15 +59,19 @@ export const day07: Day = {
         choices: [
           { en: 'The air conditioning is not working.', zh: '冷氣沒有在運作。', next: 'n3' },
           { en: 'The room is very noisy. I can hear people in the hallway.', zh: '房間很吵，我聽得到走廊有人說話。', next: 'n3' },
+          { en: 'There is no hot water in the shower.', zh: '淋浴沒有熱水。', next: 'n3' },
+          { en: 'My room smells like smoke.', zh: '我的房間有菸味。', next: 'n3' },
         ],
       },
       {
         id: 'n3',
-        theyEn: 'I apologize. I can either send maintenance up now, or move you to a quieter room on the fifth floor.',
-        theyZh: '很抱歉。我可以現在派維修人員上去，或是幫你換到五樓比較安靜的房間。',
+        theyEn: 'I apologize. I can either send maintenance up now, or move you to a different room on the fifth floor.',
+        theyZh: '很抱歉。我可以現在派維修人員上去，或是幫你換到五樓的另一間房。',
         choices: [
           { en: 'Let me make sure I understand. You can move me tonight?', zh: '讓我確認一下。你今晚可以幫我換房嗎？', next: 'n4' },
           { en: 'Could you speak a little more slowly?', zh: '可以說慢一點嗎？', next: 'n3b' },
+          { en: "I'd like to change rooms, please.", zh: '我想換房間，麻煩你。', next: 'n4' },
+          { en: 'Could you send someone to fix it, please?', zh: '可以請人來修嗎？', next: 'n4-fix' },
         ],
       },
       {
@@ -75,6 +80,7 @@ export const day07: Day = {
         theyZh: '當然。我可以派人去修……或是給你一間新房間。',
         choices: [
           { en: 'A new room would be great, thank you.', zh: '換新房間就太好了，謝謝。', next: 'n4' },
+          { en: 'Please send someone to fix it.', zh: '請派人來修。', next: 'n4-fix' },
         ],
       },
       {
@@ -84,6 +90,16 @@ export const day07: Day = {
         choices: [
           { en: 'Thank you so much for your help. One more thing — what do you recommend for dinner?', zh: '非常謝謝你的幫忙。還有一件事——晚餐你推薦什麼？', next: 'n5' },
           { en: 'Thank you so much for your help.', zh: '非常謝謝你的幫忙。', next: null },
+          { en: 'Thank you! Is there a convenience store near here?', zh: '謝謝！這附近有便利商店嗎？', next: 'n5-store' },
+        ],
+      },
+      {
+        id: 'n4-fix',
+        theyEn: 'Of course. Someone will be up in about fifteen minutes.',
+        theyZh: '沒問題。大概十五分鐘內會有人上去。',
+        choices: [
+          { en: 'Thank you so much. One more thing — what do you recommend for dinner?', zh: '非常謝謝。還有一件事——晚餐你推薦什麼？', next: 'n5' },
+          { en: 'Great, thank you for your help.', zh: '太好了，謝謝你的幫忙。', next: null },
         ],
       },
       {
@@ -93,14 +109,41 @@ export const day07: Day = {
         choices: [
           { en: 'Could you write that down?', zh: '可以幫我寫下來嗎？', next: 'n6' },
           { en: 'Do you mean two blocks that way?', zh: '你是說往那個方向兩個街區嗎？', next: 'n6' },
+          { en: 'Do I need a reservation?', zh: '需要先訂位嗎？', next: 'n6-booking' },
+          { en: 'Is it expensive?', zh: '會很貴嗎？', next: 'n6-price' },
+        ],
+      },
+      {
+        id: 'n5-store',
+        theyEn: 'Yes, there is one right around the corner.',
+        theyZh: '有，轉角就有一家。',
+        choices: [
+          { en: 'Great, thank you. Have a good night!', zh: '太好了，謝謝。祝你有個美好的夜晚！', next: null },
         ],
       },
       {
         id: 'n6',
-        theyEn: 'Here you go. Enjoy your dinner!',
-        theyZh: '給你。用餐愉快！',
+        theyEn: 'Yes, that way. And here it is on paper, too. Enjoy your dinner!',
+        theyZh: '對，往那邊。我也幫你寫在紙上了。用餐愉快！',
         choices: [
           { en: 'Thank you so much. Have a good night!', zh: '非常謝謝。祝你有個美好的夜晚！', next: null },
+          { en: 'Thanks! See you later.', zh: '謝謝！待會見。', next: null },
+        ],
+      },
+      {
+        id: 'n6-booking',
+        theyEn: 'On a weeknight, you should be fine without one.',
+        theyZh: '平日晚上的話，不訂位應該也沒問題。',
+        choices: [
+          { en: 'Great, thank you. Have a good night!', zh: '太好了，謝謝。祝你有個美好的夜晚！', next: null },
+        ],
+      },
+      {
+        id: 'n6-price',
+        theyEn: 'Not really. About twenty dollars a person.',
+        theyZh: '不太貴。一個人大概二十塊美金。',
+        choices: [
+          { en: 'Perfect. Thank you so much!', zh: '太好了，非常謝謝你！', next: null },
         ],
       },
     ],

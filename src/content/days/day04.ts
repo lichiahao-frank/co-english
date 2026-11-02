@@ -49,6 +49,7 @@ export const day04: Day = {
         choices: [
           { en: 'Yes, please. Is this the right way to the station?', zh: '好的，麻煩你。往車站是走這邊嗎？', next: 'n2' },
           { en: 'Yes. Where can I find the subway?', zh: '是的。請問地鐵站在哪裡？', next: 'n2' },
+          { en: "Yes, thank you! I'm looking for the nearest subway station.", zh: '是的，謝謝！我在找最近的地鐵站。', next: 'n2' },
         ],
       },
       {
@@ -58,6 +59,8 @@ export const day04: Day = {
         choices: [
           { en: 'Could you speak a little more slowly?', zh: '可以說慢一點嗎？', next: 'n2b' },
           { en: 'Two blocks, then right at the bank. Got it.', zh: '兩個街區，然後在銀行右轉。懂了。', next: 'n3' },
+          { en: 'Can I walk there?', zh: '走路到得了嗎？', next: 'n2c' },
+          { en: 'Could you show me on my phone?', zh: '可以在我手機地圖上指給我看嗎？', next: 'n2d' },
         ],
       },
       {
@@ -66,6 +69,23 @@ export const day04: Day = {
         theyZh: '當然。兩個街區……往前直走……然後右轉。',
         choices: [
           { en: 'Thank you, that helps a lot.', zh: '謝謝，這幫助很大。', next: 'n3' },
+          { en: 'Straight, then right. Thank you!', zh: '直走，然後右轉。謝謝你！', next: 'n3' },
+        ],
+      },
+      {
+        id: 'n2c',
+        theyEn: 'Yes, it is only about five minutes on foot.',
+        theyZh: '可以，走路大概五分鐘而已。',
+        choices: [
+          { en: 'Great, that is easy. Thank you!', zh: '太好了，很近嘛。謝謝！', next: 'n3' },
+        ],
+      },
+      {
+        id: 'n2d',
+        theyEn: 'Sure. We are here... and the station is right there.',
+        theyZh: '當然。我們在這裡……車站就在那裡。',
+        choices: [
+          { en: 'Oh, I see it now. Thank you!', zh: '喔，我現在看到了。謝謝！', next: 'n3' },
         ],
       },
       {
@@ -75,6 +95,8 @@ export const day04: Day = {
         choices: [
           { en: 'One more thing — what time does that shop open?', zh: '還有一件事——那家店幾點開門？', next: 'n4' },
           { en: "That's all. Thank you so much!", zh: '這樣就好，非常謝謝你！', next: null },
+          { en: 'How much is a subway ticket?', zh: '地鐵票多少錢？', next: 'n4t' },
+          { en: 'Is there a good coffee shop near here?', zh: '這附近有不錯的咖啡店嗎？', next: 'n4c' },
         ],
       },
       {
@@ -83,6 +105,23 @@ export const day04: Day = {
         theyZh: '我想他們十點開，禮拜天可能十點半。',
         choices: [
           { en: 'Great, thank you so much for your help!', zh: '太好了，非常感謝你的幫忙！', next: null },
+          { en: "Ten o'clock. Got it. Have a nice day!", zh: '十點，懂了。祝你有美好的一天！', next: null },
+        ],
+      },
+      {
+        id: 'n4t',
+        theyEn: 'It is about three dollars. You can just tap your card at the gate.',
+        theyZh: '大概三塊美金。在閘門那邊直接刷卡就可以了。',
+        choices: [
+          { en: 'Oh, that is easy. Thank you for your help!', zh: '喔，很簡單嘛。謝謝你的幫忙！', next: null },
+        ],
+      },
+      {
+        id: 'n4c',
+        theyEn: 'Yes, there is a nice little café right across the street.',
+        theyZh: '有，對街就有一家不錯的小咖啡店。',
+        choices: [
+          { en: 'Perfect. Thank you so much!', zh: '太好了，非常謝謝你！', next: null },
         ],
       },
     ],
