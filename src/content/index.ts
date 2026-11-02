@@ -6,8 +6,35 @@ import { day04 } from './days/day04'
 import { day05 } from './days/day05'
 import { day06 } from './days/day06'
 import { day07 } from './days/day07'
+import { day08 } from './days/day08'
+import { day09 } from './days/day09'
+import { day10 } from './days/day10'
+import { day11 } from './days/day11'
+import { day12 } from './days/day12'
+import { day13 } from './days/day13'
+import { day14 } from './days/day14'
+import { day15 } from './days/day15'
+import { day16 } from './days/day16'
+import { day17 } from './days/day17'
+import { day18 } from './days/day18'
+import { day19 } from './days/day19'
+import { day20 } from './days/day20'
+import { day21 } from './days/day21'
+import { day22 } from './days/day22'
+import { day23 } from './days/day23'
+import { day24 } from './days/day24'
+import { day25 } from './days/day25'
+import { day26 } from './days/day26'
+import { day27 } from './days/day27'
+import { day28 } from './days/day28'
+import { day29 } from './days/day29'
+import { day30 } from './days/day30'
 
-export const DAYS: Day[] = [day01, day02, day03, day04, day05, day06, day07]
+export const DAYS: Day[] = [day01, day02, day03, day04, day05, day06, day07,
+  day08, day09, day10, day11, day12, day13, day14,
+  day15, day16, day17, day18, day19, day20, day21,
+  day22, day23, day24, day25, day26, day27, day28, day29, day30,
+]
 
 /** 已經寫好內容的天數。還沒寫到的天，首頁會顯示「敬請期待」而不是壞掉。 */
 export const CONTENT_DAYS = DAYS.length
